@@ -1,0 +1,1017 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  font-family: "Montserrat";
+  background-color: #f0efef;
+}
+
+header {
+  background-color: #2b2b2b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: unset;
+  margin: 0;
+  padding: 0px 50px;
+  height: 100px;
+  color: white;
+}
+
+.logo {
+  font-size: 60px;
+  font-weight: 900;
+}
+
+nav {
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  padding-top: 35px;
+}
+
+#navSearch {
+  border: none;
+  outline: none;
+  background: transparent;
+  height: 30px;
+}
+
+.textField {
+  background-color: white;
+  padding: 0px 10px;
+  border-radius: 30px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: row;
+      -ms-flex-pack: row;
+          justify-content: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchButton {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.searchButton:hover {
+  cursor: pointer;
+}
+
+#landingVidContainer {
+  position: relative;
+  height: 660px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.imgVid {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+#logoSloganContainer {
+  position: absolute;
+  width: 489px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  top: 50px;
+  right: 10px;
+  color: white;
+}
+
+#vidLogo {
+  font-size: 120px;
+  width: 100%;
+  text-align: left;
+}
+
+.slogan {
+  font-size: 70px;
+  width: 100%;
+  text-align: left;
+}
+
+.sectionLabel {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  top: 0px;
+  left: 25px;
+}
+
+#todaysHitsContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 70px;
+  height: 450px;
+}
+
+#todaysHitsCarousel {
+  width: 100%;
+}
+
+.carouselContainer {
+  height: 80%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.vinylDivSlide {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 20px;
+}
+
+.movementButton {
+  width: 30px;
+  margin: 20px;
+  z-index: 1;
+}
+
+.movementButton span {
+  background-color: black;
+  height: 30px;
+  width: 30px;
+  background-size: 15px;
+}
+
+.vinylImg {
+  position: relative;
+  height: 325px;
+  width: 325px;
+  background-color: #2b2b2b;
+}
+
+.vinylImg:hover {
+  cursor: pointer;
+}
+
+#opBckgrnd {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#widget {
+  position: relative;
+  width: 70%;
+  height: 80%;
+  min-width: 600px;
+  background-color: #f0efef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#exitButton {
+  color: #aaaaaa;
+  position: absolute;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+  top: 10px;
+  right: 15px;
+  z-index: 2;
+}
+
+#exitButton:hover {
+  cursor: pointer;
+}
+
+#widgetImg {
+  width: 55%;
+  height: 100%;
+}
+
+#widgetTextDiv {
+  position: relative;
+  width: 45%;
+  height: 100%;
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#widgetTextAlbum {
+  font-size: 25px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+#widgetTextArtist {
+  font-size: 20px;
+  font-weight: 550;
+  margin-bottom: 40px;
+}
+
+#widgetTextArtist:hover {
+  cursor: pointer;
+}
+
+#trackList {
+  list-style: decimal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 325px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#widgetTextDiv label {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+#trackList li {
+  width: 125px;
+  margin-right: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-left: 17px;
+}
+
+#widgetBuyButton {
+  border: none;
+  border-radius: 50px;
+  font-size: 25px;
+  width: 60%;
+  height: 50px;
+  background-color: #2b2b2b;
+  margin-left: 15%;
+  background-color: #2b2b2b;
+  color: white;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+#widgetBuyButton:hover {
+  cursor: pointer;
+}
+
+#artistOfWeekContainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 850px;
+}
+
+.artistOfWeek {
+  position: relative;
+  width: 725px;
+  height: 750px;
+}
+
+.artistOfWeek::after {
+  content: attr(artistName);
+  position: absolute;
+  bottom: 110px;
+  left: 30px;
+  background-color: #2b2b2bbd;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+}
+
+.artistOfWeek:hover {
+  cursor: pointer;
+}
+
+.artistButton {
+  border: none;
+  border-radius: 50px;
+  font-size: 25px;
+  width: 150px;
+  height: 60px;
+  background-color: #2b2b2b;
+  background-color: white;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+.artistButton:hover {
+  cursor: pointer;
+}
+
+#allGenresContainer {
+  position: relative;
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-left: 4vw;
+  padding-bottom: 70px;
+  padding-top: 20px;
+}
+
+.genreImg {
+  position: relative;
+  width: 350px;
+  height: 310px;
+}
+
+.genreImg::before {
+  content: attr(genreName);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.27);
+}
+
+.genreImg:hover {
+  cursor: pointer;
+}
+
+#allGenreText {
+  top: -40px;
+}
+
+footer {
+  height: 300px;
+  background-color: #2b2b2b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+}
+
+#footerLogoDiv {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#footerInfoDiv {
+  margin-top: 40px;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#footerInfoDiv label {
+  margin-bottom: 10px;
+  font-weight: 900;
+}
+
+#contactInfo {
+  margin: 0px 100px;
+}
+
+#artistImgVidContainer {
+  position: relative;
+  height: 400px;
+  background-color: #2b2b2b;
+}
+
+#artistBackground {
+  position: relative;
+  height: 100%;
+}
+
+#artistBackground::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#artsitImg {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: none;
+  border-radius: 50%;
+  bottom: 30px;
+  left: 30px;
+}
+
+#artistInfoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 40px 40px 100px 40px;
+  background-color: #f0efef;
+}
+
+#artistNamePop {
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+
+#artistName {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: left;
+}
+
+#artistInfoDiv {
+  height: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#artistGenreDiv {
+  position: relative;
+  height: 400px;
+  margin-top: 60px;
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#artistGenreDiv label {
+  position: absolute;
+  top: -30px;
+  left: 0px;
+}
+
+.artistGenre {
+  position: relative;
+  width: 50%;
+  min-width: 200px;
+  height: 100%;
+}
+
+.artistGenre::before {
+  content: attr(genreName);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.27);
+}
+
+.artistGenre:hover {
+  cursor: pointer;
+}
+
+#relatedArtistsContainer {
+  position: relative;
+  height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.27);
+}
+
+#relatedArtistsContainer::after {
+  content: "";
+  border: 3px solid #f0efef;
+  z-index: -1;
+  width: 96%;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 2%;
+}
+
+#relatedArtistText {
+  top: 30px;
+  color: white;
+}
+
+#relatedArtistsBackground {
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-image: url("https://images.unsplash.com/photo-1587731556938-38755b4803a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1178&q=80");
+  background-position: center;
+  background-size: cover;
+}
+
+#relatedArtistsCarousel {
+  height: 500px;
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.artistPreviewImg {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+}
+
+.artistPreviewImg:hover {
+  cursor: pointer;
+}
+
+.artistPreviewImg::after {
+  content: attr(artistName);
+  background-color: #2b2b2b73;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  position: absolute;
+  left: 15px;
+  bottom: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.artistPreviewImg img {
+  border: none;
+  border-radius: 10px;
+}
+
+.vinylPreviewInfo {
+  position: absolute;
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  background-color: #2b2b2b73;
+}
+
+#previewNames {
+  margin: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 20px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#previewAlbum {
+  max-width: 225px;
+  font-weight: 700;
+}
+
+#previewArtist {
+  font-size: 12px;
+}
+
+#previewPrice {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.previewArtistButton {
+  border: none;
+  border-radius: 50px;
+  font-size: 25px;
+  width: 120px;
+  height: 40px;
+  background-color: #2b2b2b;
+  background-color: white;
+  font-size: 20px;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.previewArtistButton:hover {
+  cursor: pointer;
+}
+
+#discographyContainer {
+  min-height: 460px;
+  background-color: #f0efef;
+  position: relative;
+  padding: 100px 0px 100px 60px;
+}
+
+#discographyLabel {
+  top: 50px;
+  left: 30px;
+}
+
+#discography {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.discographyVinylImg {
+  margin: 15px 15px;
+}
+
+#catalougeContainer {
+  position: relative;
+  min-height: 500px;
+  padding-bottom: 300px;
+}
+
+#filterDiv {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 300px;
+  padding: 80px 40px;
+}
+
+#filter {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 400px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  line-height: 30px;
+}
+
+#filter span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#filter input {
+  position: relative;
+  border: none;
+  border-radius: 50px;
+  font-size: 25px;
+  width: 15px;
+  height: 15px;
+  background-color: #2b2b2b;
+}
+
+#filter input:hover {
+  cursor: pointer;
+}
+
+#filter input::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 1px solid #2b2b2b;
+  border-radius: 50%;
+}
+
+#filter input:checked::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #2b2b2b;
+  border-radius: 50%;
+}
+
+#filter button {
+  border: none;
+  border-radius: 50px;
+  font-size: 25px;
+  width: 150px;
+  height: 50px;
+  background-color: #2b2b2b;
+  color: white;
+}
+
+#filter button:hover {
+  cursor: pointer;
+}
+
+#resultsLabel {
+  position: absolute;
+  top: 40px;
+  left: 360px;
+  right: 60px;
+  padding: 0px 40px;
+  background-color: #2b2b2ba2;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#resultsLabel h2 {
+  margin: 10px;
+}
+
+#resultsLabel select {
+  border: none;
+  border-radius: 40px;
+  padding: 5px 10px;
+  margin: 10px 0px;
+}
+
+#results {
+  position: relative;
+  top: 150px;
+  left: 20%;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.resultsVinyl {
+  width: 250px;
+  height: 250px;
+  margin: 20px;
+}
+
+.resultsVinyl div {
+  padding: 5px 0px;
+  height: 80px;
+}
+
+.resultsVinyl div #previewNames {
+  -webkit-transform: scale(80%);
+          transform: scale(80%);
+  width: 190px;
+  margin: 0px;
+}
+/*# sourceMappingURL=main.css.map */

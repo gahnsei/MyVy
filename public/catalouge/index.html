@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../reset.css">
+    <script src="https://kit.fontawesome.com/777ba52370.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>MyVy</title>
+</head>
+<body>
+    <header>
+        <h1 id="logo" class="logo"><a href="../index.html">MyVy</a>
+            </h1> 
+        <nav>
+            <span><a href="../index.html">HOME</a></span> <span>ipsum</span> <span>dolor</span>  <span>sit</span>  <span>amet</span> 
+        </nav>
+        <form id="navSearchForm" class="textField">
+        <input id="navSearch"  type="text" id="searchBar" placeholder="Search" required>
+        <button class="searchButton">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        </i>
+        </form>
+    </header>
+    <main>
+        <section id="catalougeContainer">
+            <div id="filterDiv">
+                <form id="filter">
+                    <div id="contentTypeDiv" class="filterSpacing">
+                        <span id="contentTypeLabel">Content Type</span><br>
+                        <input type="radio" name="contentType" id="recordradio" value="record" checked>
+                        <label for="recordradio">Record
+                        </label><br>
+                        <input type="radio" name="contentType" id="artistradio" value="artist">
+                        <label for="artistradio">Artist
+                        </label>
+                    </div>
+
+                    <div id="shopPriceDiv">
+                        <span id="shopPriceLabel">Shop Price</span><br>
+                        <input type="radio" name="shopPrice" id="0-25Price" value="0-25">
+                        <label for="0-25Price">$0-$25
+                        </label><br>
+                        <input type="radio" name="shopPrice" id="25-50Price" value="25-50">
+                        <label for="25-50Price">$25-$50
+                        </label><br>
+                        <input type="radio" name="shopPrice" id="50-75Price" value="50-75">
+                        <label for="50-75Price">$50-$75
+                        </label><br>
+                        <input type="radio" name="shopPrice" id="75-100Price" value="75-100">
+                        <label for="75-100Price">$75-$100
+                        </label><br>
+                        <input type="radio" name="shopPrice" id="100+Price" value="100">
+                        <label for="100+Price">$100+
+                        </label>
+                    </div>
+                    <button id="submitFilter">Filter</button>
+                </form>
+            </div>
+            <div id="resultsLabel">
+                <h2>Showing Results for | <span id="queryLabel"></span> </h2>
+                <select name="sortBy" id="sortBy">
+                    <option value="popularity DESC">Popularity (High-Low)</option>
+                    <option value="popularity ASC">Popularity (Low-High)</option>
+                    <option value="release_date DESC">Recently Added</option>
+                    <option value="stock DESC">In Stock</option>
+                </select>
+            </div>
+
+            <div id="results"></div>
+        </section>
+    </main>
+</body>
+<footer>
+    <div id="footerLogoDiv">
+      <span id="footerLogo" class="logo">MyVy</span>
+    </div>
+    <div id="footerInfoDiv">
+      <ul id="legalInfo">
+        <label for="legalInfo">Legal Info</label>
+        <li>Terms and Condition</li>
+        <li>Privacy Policy</li>
+        <li>Cookies</li>
+      </ul>
+      <ul id="contactInfo">
+        <label for="contactInfo">Get In Touch</label>
+        <li>gahnsei@gmail.com</li>
+        <li>+1 (234) 567-8910</li>
+      </ul>
+      <ul id="socialInfo">
+        <label for="socialInfo">Follow Us</label>
+        <li>Twitter</li>
+        <li>Facebook</li>
+        <li>Discord</li>
+      </ul>
+    </div>
+  </footer>
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./main.js"></script>
+  <script src="../../node_modules/axios/dist/axios.min.js"></script>
+</html>
