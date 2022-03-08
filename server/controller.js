@@ -2,9 +2,9 @@ require(`dotenv`).config();
 const axios = require(`axios`);
 const Sequelize = require(`sequelize`);
 
-const { CONNECTION_STRING, SPOTIFY_AUTH, COVER_AUTH } = process.env;
+const { DATABASE_URL, SPOTIFY_AUTH, COVER_AUTH } = process.env;
 
-const sequelize = new Sequelize(CONNECTION_STRING, {
+const sequelize = new Sequelize(DATABASE_URL, {
   dialect: `postgres`,
   dialectOptions: {
     ssl: {
