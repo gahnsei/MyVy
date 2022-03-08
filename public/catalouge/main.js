@@ -394,3 +394,24 @@ window.onpageshow = () => {
     recordSearch(Q);
   }
 }
+
+window.onload = () => {
+  document.getElementsByName(`shopPrice`).forEach(ele => {
+    ele.checked = false
+  })
+  document.querySelector(`#results`).innerHTML = ``;
+   if (GENRES.includes(Q)) {
+     localStorage.setItem(`allArtists`, false);
+     localStorage.setItem(`allRecords`, false);
+    genreSearch(GENRES.indexOf(Q) + 1);
+  } else if (ALL_ARTISTS === `true`) {
+    document.querySelector(`#artistradio`).checked = true
+    allArtistsSearch();
+  } else if (ALL_RECORDS === `true`) {
+    allAlbumsSearch();
+  } else {
+    localStorage.setItem(`allArtists`, false);
+    localStorage.setItem(`allRecords`, false);
+    recordSearch(Q);
+  }
+}
