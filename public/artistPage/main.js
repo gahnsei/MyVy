@@ -100,7 +100,7 @@ const displayArtist = (artistName) => {
 
 const vinylWidget = (event) => {
   let vinyl = event.target;
-  axios.get(`/apialbum/${vinyl.id}`).then((res) => {
+  axios.get(`/api/album/${vinyl.id}`).then((res) => {
     let album = res.data[0];
     const opBckgrnd = document.createElement(`div`);
     const widget = document.createElement(`div`);
