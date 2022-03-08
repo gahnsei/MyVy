@@ -65,7 +65,6 @@ body {
 header {
   background-color: $primaryColor;
   @include flex(flex-start);
-  text-align: unset;
   margin: 0;
   padding: 0px 50px;
   height: 100px;
@@ -82,6 +81,10 @@ nav {
   @include flex(space-between);
   margin: 0 auto;
   padding-top: 35px;
+  padding-left: 60px;
+    & span {
+      @include hover
+    }
 }
 
 #navSearch {
@@ -90,6 +93,8 @@ nav {
 }
 
 .textField {
+  position: relative;
+  top: 5px;
   background-color: white;
   padding: 0px 10px;
   border-radius: 30px;
@@ -102,6 +107,13 @@ nav {
   &:hover {
     cursor: pointer;
   }
+}
+
+#cart {
+  font-size: 20px;
+  padding-top: 20px;
+  margin-left: 30px;
+    @include hover
 }
 
 #landingVidContainer {
@@ -208,7 +220,7 @@ nav {
 #widget {
   position: relative;
   width: 70%;
-  height: 80%;
+  height: 600px;
   min-width: 600px;
   background-color: #f0efef;
   @include flex(flex-start);
@@ -228,7 +240,7 @@ nav {
   }
 }
 
-#widgetImg {
+#widgetImgDiv {
   width: 55%;
   height: 100%;
 }
@@ -247,12 +259,19 @@ nav {
   font-size: 25px;
   font-weight: 900;
   margin-bottom: 20px;
+ 
+}
+
+#widgetPriceText {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 20px;
 }
 
 #widgetTextArtist {
   font-size: 20px;
-  font-weight: 550;
-  margin-bottom: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
   @include hover;
 }
 
@@ -272,8 +291,8 @@ nav {
 }
 
 #trackList li {
-  width: 125px;
-  margin-right: 50px;
+  width: 115px;
+  margin-right: 20px;
   font-size: 15px;
   font-weight: 500;
   margin-bottom: 10px;
@@ -288,6 +307,17 @@ nav {
   position: absolute;
   bottom: 30px;
   left: 30px;
+}
+
+.popUpNotif {
+  margin-left: 150px;
+  background-color: #c4c4c4;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  position: absolute;
+  bottom: 100px;
 }
 
 #artistOfWeekContainer {
@@ -650,8 +680,8 @@ footer {
 #resultsLabel {
   position: absolute;
   top: 40px;
-  left: 360px;
-  right: 60px;
+  left: 330px;
+  right: 80px;
   padding: 0px 40px;
   background-color: #2b2b2ba2;
   color: white;
@@ -691,5 +721,147 @@ footer {
           width: 190px;
           margin: 0px;
         }
+      }
+}
+
+.resultsArtist {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  border: none;
+  border-radius: 7px;
+  @include hover;
+  &::after {
+    content: attr(artistName);
+    background-color: #2b2b2b73;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    position: absolute;
+    left: 15px;
+    bottom: 60px;
+    @include flex(center);
+  }
+
+  & img {
+    border: none;
+    border-radius: 10px;
+  }
+}
+
+// ------------------- Check Out -----------------------
+
+#checkoutContainer {
+  @include flex(flex-start);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 500px;
+}
+
+#orderSummaryDiv {
+  position: relative;
+  border: none;
+  border-radius: 20px;
+  background: #2b2b2b1a;
+  margin: 30px 0px 30px 5% ;
+  padding: 40px 15px 90px 15px;
+  width: 350px;
+
+      & #orderSummaryLabel {
+        position: absolute;
+        font-weight: 600;
+        top: 15px;
+        left: 15px
+      }
+
+      & button {
+        @include button(60%, 50px);
+        position: absolute;
+        bottom: 15px;
+        left: 20%;
+        min-width: 200px;
+        color: white
+      }
+
+      & div {
+        font-size: 15px;
+        line-height: 30px;
+        width: 100%;
+        & div {
+          @include flex(space-between);
+          flex-wrap: wrap;
+          & span {
+            max-width: 260px;
+          }
+        }
+      }
+}
+
+#cartItemsDiv {
+  position: relative;
+
+  margin: 30px 0px 30px 5%;
+  padding: 30px 15px;   
+  width: 55%;
+
+      & #cartItemsLabel {
+        position: absolute;
+        font-weight: 600;
+        top: 10px;
+        left: 17px
+      }
+}
+
+.checkoutImg {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.cartItem {
+  position: relative;
+  margin: 15px 0px;
+  padding: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  background: #2b2b2b1a;
+  @include flex(flex-start);
+  & span {
+    width: 30%;
+    min-width: 100px;
+    text-align: start;
+    margin: 0px 10px
+  }
+  & img {
+        border-radius: 5px;
+      }
+}
+
+.albumCartName {
+  font-weight: 600;
+}
+
+.removeItem {
+  position: absolute;
+  color: #c4c4c4;
+  right: 20px;
+  @include hover;
+}
+
+#emptyCart {
+  width: 100%;
+  height: 400px;
+  @include flex(center);
+  text-align: center;
+  font-size: 80px;
+  color: #c4c4c4;
+      & i {
+        margin-top: 10px;
       }
 }

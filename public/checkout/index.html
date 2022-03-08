@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../reset.css">
+    <script src="https://kit.fontawesome.com/777ba52370.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>MyVy</title>
+</head>
+<body>
+    <header>
+        <h1 id="logo" class="logo"><a href="../index.html">MyVy</a></h1>
+        <nav>
+            <span><a href="../index.html">HOME</a></span> <span id="allArtists">ARTISTS</span> <span id="allRecords">RECORDS</span>
+        </nav>
+        <form id="navSearchForm" class="textField">
+        <input id="navSearch"  type="text" id="searchBar" placeholder="Search" required>
+        <button class="searchButton">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        
+        </i>
+        </form>
+    </header>
+    <main>
+        <section id="checkoutContainer">
+
+            <div id="cartItemsDiv">
+                <span id="cartItemsLabel">Cart</span>
+            </div>
+
+            <div id="orderSummaryDiv">
+                <span id="orderSummaryLabel">Order Summary</span>
+                <div id="orderSummaryItems"></div>
+                <hr>
+                <div id="shippingDeliveryDiv">
+                  <div id="shippingDiv">
+                    <span id="shipping">Shipping</span>
+                    <span id="shippingPrice"></span>
+                  </div>
+                  <div id="deliveryDiv">
+                    <span id="delivery">Delivery</span>
+                    <span id="deliveryPrice"></span>
+                  </div>
+                <hr>
+                <div id="taxTotal">
+                  <div id="preTaxTotalDiv">
+                    <span id="preTaxTotal">Total</span>
+                    <span id="preTaxPrice"></span>
+                  </div>
+                  <div id="taxDiv">
+                    <span id="tax">Tax</span>
+                    <span id="taxPrice"></span>
+                    </div>
+                </div>
+                <hr>
+                <div id="orderTotalDiv">
+                  <div>
+                    <span id="orderTotal">Order Total</span>
+                    <span id="orderTotalPrice"></span>
+                  </div>
+                </div>
+                <button id="placeOrderButton">Place Order</button>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <div id="footerLogoDiv">
+          <span id="footerLogo" class="logo">MyVy</span>
+        </div>
+        <div id="footerInfoDiv">
+          <ul id="legalInfo">
+            <label for="legalInfo">Legal Info</label>
+            <li>Terms and Condition</li>
+            <li>Privacy Policy</li>
+            <li>Cookies</li>
+          </ul>
+          <ul id="contactInfo">
+            <label for="contactInfo">Get In Touch</label>
+            <li>gahnsei@gmail.com</li>
+            <li>+1 (234) 567-8910</li>
+          </ul>
+          <ul id="socialInfo">
+            <label for="socialInfo">Follow Us</label>
+            <li>Twitter</li>
+            <li>Facebook</li>
+            <li>Discord</li>
+          </ul>
+        </div>
+      </footer>
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
+      <script src="./main.js"></script>
+      <script src="../../node_modules/axios/dist/axios.js"></script>
+  </body>
+  </html>

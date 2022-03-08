@@ -1,16 +1,32 @@
-const myVyUrl = `http://localhost:4005/api`;
+
 
 document.body
   .querySelector(`#navSearchForm`)
   .addEventListener(`submit`, (event) => {
     event.preventDefault();
+    localStorage.setItem(`allArtists`, false);
+    localStorage.setItem(`allRecords`, false);
     localStorage.setItem(`q`, event.target.firstElementChild.value);
-    event.target.firstElementChild.value = ``
+    event.target.firstElementChild.value = ``;
     window.location.href = "../catalouge/index.html";
 });
 
+document.body.querySelector(`#allArtists`).addEventListener(`click`, event => {
+  localStorage.setItem(`allArtists`, true)
+  localStorage.setItem(`allRecords`, false)
+  localStorage.setItem(`q`, event.target.textContent)
+  window.location.href = `../catalouge/index.html`
+})
+
+document.body.querySelector(`#allRecords`).addEventListener(`click`, event => {
+  localStorage.setItem(`allRecords`, true)
+  localStorage.setItem(`allArtists`, false)
+  localStorage.setItem(`q`, event.target.textContent)
+  window.location.href = `../catalouge/index.html`
+})
+
 const displayArtist = (artistName) => {
-  axios.get(`${myVyUrl}/artist/${artistName}`).then((res) => {
+  axios.get(`/api/artist/${artistName}`).then((res) => {
     let artist = res.data;
     let vid = document.querySelector(`#artsitBackgroundVid`);
     let img = document.querySelector(`#artsitImg`);
@@ -25,7 +41,7 @@ const displayArtist = (artistName) => {
     name.textContent = artist.artist_name;
     pop.textContent = `Popularity | ` + artist.popularity;
 
-    axios.get(`${myVyUrl}/artistGenre/${artist.artist_id}`).then((dbRes) => {
+    axios.get(`/api/artistGenre/${artist.artist_id}`).then((dbRes) => {
       displayRelatedArtists(dbRes.data);
 
       dbRes.data.forEach((ele) => {
@@ -40,15 +56,17 @@ const displayArtist = (artistName) => {
         genreImg.classList.add(`imgVid`);
 
         div.appendChild(genreImg);
-        div.addEventListener(`click`, event => {
-          localStorage.setItem(`q` , event.target.firstElementChild.alt)
-          window.location.href = `../catalouge/index.html`
-        })
+        div.addEventListener(`click`, (event) => {
+          localStorage.setItem(`q`, event.target.firstElementChild.alt);
+          localStorage.setItem(`allArtists`, false);
+          localStorage.setItem(`allRecords`, false);
+          window.location.href = `../catalouge/index.html`;
+        });
         document.querySelector(`#artistGenreDiv`).appendChild(div);
       });
     });
 
-    axios.get(`${myVyUrl}/artistAlbums/${artist.artist_id}`).then((alRes) => {
+    axios.get(`/api/artistAlbums/${artist.artist_id}`).then((alRes) => {
       let latestReleaseImg = document.querySelector(`#latestReleaseImg`);
       latestReleaseImg.src = alRes.data[0].album_img;
       latestReleaseImg.alt = alRes.data[0].artist_name;
@@ -82,17 +100,18 @@ const displayArtist = (artistName) => {
 
 const vinylWidget = (event) => {
   let vinyl = event.target;
-  axios.get(`${myVyUrl}/album/${vinyl.id}`).then((res) => {
+  axios.get(`/apialbum/${vinyl.id}`).then((res) => {
     let album = res.data[0];
     const opBckgrnd = document.createElement(`div`);
     const widget = document.createElement(`div`);
 
     widget.innerHTML = `
       <i id='exitButton' class="fa-solid fa-xmark"></i>
-      <img id='widgetImg' class='imgVid'>
+      <div id='widgetImgDiv'><img id='widgetImg' class='imgVid'></div>
       <div id='widgetTextDiv'>
           <span id='widgetTextAlbum'></span>
           <span id='widgetTextArtist'></span>
+          <span id='widgetPriceText'></span>
           <label for='trackList'>Track List</label>
           <ol id='trackList'>
           </ol>
@@ -106,8 +125,20 @@ const vinylWidget = (event) => {
     let main = document.querySelector(`main`);
     main.insertBefore(opBckgrnd, main.firstChild);
 
+    document
+      .querySelector(`#widgetBuyButton`)
+      .addEventListener(`click`, (event) => {
+        let record = event.target.parentElement.previousElementSibling.firstElementChild;
+        addToCart(record);
+      });
+
+    let img = document.querySelector(`#widgetImg`);
+    img.src = album.album_img;
+    img.id = album.album_id;
+    img.alt = album.album_name;
+
     document.querySelector(`#exitButton`).addEventListener(`clcik`, exitWidget);
-    document.querySelector(`#widgetImg`).src = album.album_img;
+    document.querySelector(`#widgetPriceText`).textContent = `$` + album.price;
     document.querySelector(`#widgetTextAlbum`).textContent = album.album_name;
     document.querySelector(`#widgetTextArtist`).textContent = album.artist_name;
     document
@@ -117,7 +148,7 @@ const vinylWidget = (event) => {
         window.location.href = "./index.html";
       });
 
-    axios.get(`${myVyUrl}/tracks/${album.album_spotify_id}`).then((spotRes) => {
+    axios.get(`/api/tracks/${album.album_spotify_id}`).then((spotRes) => {
       let i = 0;
       while (i < spotRes.data.length && i < 16) {
         let li = document.createElement(`li`);
@@ -153,6 +184,34 @@ const exitWidget = (event) => {
   }
 };
 
+const addToCart = (record) => {
+  let cart = localStorage.getItem(`cart`);
+  const ID = record.id;
+  if (!cart) {
+    cart = ID + ``;
+    popUpNotif(`Added To Cart`)
+  } else {
+    cart = cart.split(`,`);
+    if (!cart.includes(ID)) {
+      cart.push(ID)
+      cart.join(`,`);
+      popUpNotif(`Added To Cart`)
+    } else {
+      popUpNotif(`Already In Cart`)
+    }
+  }
+  localStorage.setItem(`cart`, cart);
+};
+
+const popUpNotif = (message) => {
+  let div = document.createElement(`div`)
+  div.classList.add(`popUpNotif`)
+  div.textContent = message
+
+  document.querySelector(`#widgetTextDiv`).appendChild(div)
+  setTimeout(() => div.remove(), 1500)
+}
+
 const displayRelatedArtists = (artistGenres) => {
   let genres = [];
   artistGenres.forEach((ele) => genres.push(ele.genre_id));
@@ -165,7 +224,7 @@ const displayRelatedArtists = (artistGenres) => {
 
   const artistDivSlides = [artistDivSlide1, artistDivSlide2, artistDivSlide3];
 
-  axios.get(`${myVyUrl}/relatedArtists/${genres}`).then((res) => {
+  axios.get(`/api/relatedArtists/${genres}`).then((res) => {
     let artist = res.data;
     let displayedArtists = [localStorage.getItem(`artist`)];
     let i = 0;
@@ -202,6 +261,11 @@ const displayRelatedArtists = (artistGenres) => {
         div.appendChild(button);
 
         button.classList.add(`previewArtistButton`);
+        button.addEventListener(`click`, (event) => {
+          let artist = event.target.parentElement.getAttribute(`artistname`);
+          localStorage.setItem(`artist`, artist)
+          window.location.href = `./index.html`
+        });
         button.textContent = `Discover`;
 
         img.id = artist[rand].artist_name;
@@ -222,7 +286,7 @@ const displayRelatedArtists = (artistGenres) => {
 const vinylInfoPreview = (event) => {
   const album = event.target.firstElementChild;
 
-  axios.get(`${myVyUrl}/album/${album.id}`).then((res) => {
+  axios.get(`/api/album/${album.id}`).then((res) => {
     const vinyl = res.data[0];
     const previewDiv = album.nextElementSibling;
     previewDiv.id = `vinylPreviewInfo${vinyl.album_id}`;

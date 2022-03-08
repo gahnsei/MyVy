@@ -23,15 +23,15 @@
         <h1 id="logo" class="logo"><a href="../index.html">MyVy</a>
             </h1> 
         <nav>
-            <span><a href="../index.html">HOME</a></span> <span>ipsum</span> <span>dolor</span>  <span>sit</span>  <span>amet</span> 
+            <span><a href="../index.html">HOME</a></span> <span id="allArtists">ARTISTS</span> <span id="allRecords">RECORDS</span>
         </nav>
         <form id="navSearchForm" class="textField">
         <input id="navSearch"  type="text" id="searchBar" placeholder="Search" required>
         <button class="searchButton">
             <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        </i>
         </form>
+        <a href="../checkout/index.html"><i id="cart" class="fa-solid fa-cart-shopping"></i></a>
     </header>
     <main>
         <section id="catalougeContainer">
@@ -61,7 +61,7 @@
                         <input type="radio" name="shopPrice" id="75-100Price" value="75-100">
                         <label for="75-100Price">$75-$100
                         </label><br>
-                        <input type="radio" name="shopPrice" id="100+Price" value="100">
+                        <input type="radio" name="shopPrice" id="100+Price" value="100-10000">
                         <label for="100+Price">$100+
                         </label>
                     </div>
@@ -70,11 +70,12 @@
             </div>
             <div id="resultsLabel">
                 <h2>Showing Results for | <span id="queryLabel"></span> </h2>
-                <select name="sortBy" id="sortBy">
+                <select name="orderBy" id="orderBy">
+                    <option value="orderBy" selected disabled>Order By</option>
                     <option value="popularity DESC">Popularity (High-Low)</option>
                     <option value="popularity ASC">Popularity (Low-High)</option>
                     <option value="release_date DESC">Recently Added</option>
-                    <option value="stock DESC">In Stock</option>
+                    <option value="stock_quantity DESC">In Stock</option>
                 </select>
             </div>
 

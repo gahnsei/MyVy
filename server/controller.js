@@ -2,7 +2,7 @@ require(`dotenv`).config();
 const axios = require(`axios`);
 const Sequelize = require(`sequelize`);
 
-const { CONNECTION_STRING } = process.env;
+const { CONNECTION_STRING, SPOTIFY_AUTH, COVER_AUTH } = process.env;
 
 const sequelize = new Sequelize(CONNECTION_STRING, {
   dialect: `postgres`,
@@ -15,14 +15,14 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
 
 const oAuthHeader = {
   headers: {
-    Authorization: `Basic MWZjYTZiYzYxYWQ0NGE1NzgxNzZmMDdjMDMxN2M0MWY6ZDZmMDc3YzljYjY0NDk4Mzg1MTIwNWVmNGNjNGFhOWU=`,
+    Authorization: `Basic ${SPOTIFY_AUTH}`,
     "Content-Type": `application/x-www-form-urlencoded`,
   },
 };
 
 const coverrHeader = {
   headers: {
-    Authorization: `Bearer aaf5d64b9d7ea3d8f511387a0d27107a`,
+    Authorization: `Bearer ${COVER_AUTH}`,
   },
   params: {
     page_size: 100,
@@ -214,7 +214,6 @@ const addGenres = async () => {
             accessToken
           )
           .then(async (axRes) => {
-            console.log(axRes.data.name);
             axRes.data.genres.forEach((element) => {
               element.split(` `).forEach((genre) => {
                 if (genres.includes(genre)) {
@@ -310,8 +309,6 @@ const getTracks = async (req, res) => {
 
 const getAlbumGenre = (req, res) => {
   const { genreId } = req.params;
-  const limit = req.query.limit || 16;
-  const orderBy = req.query.orderBy || `al.release_date`;
   sequelize
     .query(
       `
@@ -323,8 +320,7 @@ const getAlbumGenre = (req, res) => {
   JOIN genres g
   ON g.genre_id = ag.genre_id
   WHERE ag.genre_id IN (${genreId})
-  ORDER BY ${orderBy} DESC
-  LIMIT ${limit}
+  ORDER BY ar.popularity DESC
   ;`
     )
     .then((dbRes) => res.status(200).send(dbRes[0]))
@@ -332,7 +328,7 @@ const getAlbumGenre = (req, res) => {
 };
 
 const getArtistGenre = (req, res) => {
-  const { artistId } = req.params;
+  let { artistId } = req.params;
   sequelize
     .query(
       `
@@ -359,34 +355,69 @@ const getRelatedArtist = (req, res) => {
     .then((dbRes) => res.status(200).send(dbRes[0]));
 };
 
-const searchDB = (req, res) => {
-  let { q } = req.params;
-  q = q.replace(/'/g, `''`);
-  const lowerPrice = req.body.lowerPrice || 0;
-  const upperPrice = req.body.upperPrice || 1000000;
-  const limit = req.body.limit || 16;
-  const orderBy = req.body.orderBy || `ar.popularity`;
-  let genres = req.body.genres || [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  if (genres.length === 1) {
-    genres = genres.join(``);
-  } else {
-    genres = genres.join(`, `);
+const getAllArtists = (req, res) => {
+  let orderBy = `artist_name`;
+
+  if (req.query.orderBy !== `undefined`) {
+    if (
+      req.query.orderBy === `popularity DESC` ||
+      req.query.orderBy === `popularity ASC`
+    ) {
+      orderBy = req.query.orderBy;
+    }
   }
-  console.log(genres);
   sequelize
     .query(
       `
-      SELECT * FROM artists ar
-      JOIN albums al
+  SELECT * FROM artists ar
+  ORDER BY ${orderBy}
+  ;`
+    )
+    .then((dbRes) => res.status(200).send(dbRes[0])).catch;
+};
+
+const getAllAlbums = (req, res) => {
+  let orderBy = `al.album_name`;
+
+  if (req.query.orderBy !== `undefined`) {
+      orderBy = req.query.orderBy;
+  }
+  sequelize
+    .query(
+      `
+  SELECT * FROM albums al
+  JOIN artists ar
+  ON ar.artist_id = al.artist_id
+  ORDER BY ${orderBy}
+  ;`
+    )
+    .then((dbRes) => res.status(200).send(dbRes[0])).catch;
+}
+
+const searchDB = (req, res) => {
+  let { q } = req.params;
+  q = q.replace(/'/g, `''`);
+
+  let orderBy = `ar.popularity DESC`;
+
+  if (req.query.orderBy !== `undefined`) {
+    orderBy = req.query.orderBy;
+  }
+
+  sequelize
+    .query(
+      `
+      SELECT * FROM albums al
+      JOIN artists ar
       ON ar.artist_id = al.artist_id
-      JOIN artist_genres g
-      ON g.artist_id = ar.artist_id
-      WHERE al.price BETWEEN ${lowerPrice + ` AND ` + upperPrice}
-      AND g.genre_id IN (${genres})
-      AND lower(ar.artist_name) LIKE '%${q}%'
+      JOIN artist_genres ag
+      ON al.artist_id = ag.artist_id
+      JOIN genres g
+      ON ag.genre_id = g.genre_id
+      WHERE lower(ar.artist_name) LIKE '%${q}%'
       OR lower(al.album_name) LIKE '%${q}%'
-      ORDER BY ${orderBy} DESC
-      LIMIT ${limit}
+      OR lower(g.genre_name) LIKE '%${q}%'
+      ORDER BY ${orderBy}
       ;`
     )
     .then((dbRes) => {
@@ -432,4 +463,6 @@ module.exports = {
   addAlbums,
   getArtistGenre,
   getRelatedArtist,
+  getAllArtists,
+  getAllAlbums
 };
